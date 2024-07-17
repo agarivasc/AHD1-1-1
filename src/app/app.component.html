@@ -1,0 +1,90 @@
+<nav class="bg-gradient-to-r from-green-400 to-blue-500 shadow-lg">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <a
+        routerLink="/inicio"
+        class="text-white font-bold text-xl hover:text-gray-200 transition duration-300"
+      >
+       
+      </a>
+      <div class="hidden md:flex space-x-4 justify-center w-full">
+        <a
+        routerLink="/tequila"
+        class="text-white hover:text-gray-200 transition duration-300"
+        >Tequila</a
+        >
+
+        <a
+          routerLink="/margarita"
+          class="text-white hover:text-gray-200 transition duration-300"
+          >Margarita</a
+        >
+
+        <a
+          routerLink="/vino"
+          class="text-white hover:text-gray-200 transition duration-300"
+          >Vino</a
+        >
+        <a
+          routerLink="/vod"
+          class="text-white hover:text-gray-200 transition duration-300"
+          >Vodka</a
+        >
+       
+        
+      </div>
+      
+      <button class="md:hidden text-white focus:outline-none">
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          ></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile menu, show/hide based on menu state -->
+  <div class="md:hidden">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+
+      <a
+      routerLink="/tequila"
+      class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-600 transition duration-300"
+      >Tequila</a
+      >
+
+      <a
+        routerLink="/margarita"
+        class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-600 transition duration-300"
+        >Margarita</a
+      >
+
+      <a
+        routerLink="/vino"
+        class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-600 transition duration-300"
+        >Vino</a
+      >
+      
+      <a
+        routerLink="/vod"
+        class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-600 transition duration-300"
+        >Vodka</a
+      >
+     
+      
+    </div>
+  </div>
+</nav>
+
+<div class="container mx-auto mt-8 px-4">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,62 @@
+<section class="container mx-auto px-4 py-8 bg-gray-50">
+  <div class="flex flex-col items-center gap-8">
+    <div *ngFor="let item of data" class="bg-white rounded-xl shadow overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-105 w-full max-w-4xl">
+      <div class="relative w-full">
+        <!-- Imágenes ajustadas en tamaño y centradas -->
+        <img [src]="item.strDrinkThumb" [alt]="item.strDrink" class="w-full object-cover" style="height: 900px;">
+        <div class="absolute top-0 right-0 bg-blue-600 text-white px-3 py-1 rounded-bl-lg font-semibold">
+          {{ item.strAlcoholic }}
+        </div>
+      </div>
+      <div class="p-6">
+        <h2 class="text-2xl font-bold mb-2 text-gray-800">
+          {{ item.strDrink }}
+        </h2>
+        <h3 class="text-sm font-semibold text-gray-500 mb-4">
+          Categoría: {{ item.strCategory }}
+        </h3>
+        <hr class="mb-4 border-gray-300" />
+        <p class="text-gray-600 mb-4 line-clamp-3">
+          {{ item.strInstructions }}
+        </p>
+        <div class="mb-4">
+          <h4 class="font-semibold text-gray-800 mb-2">Ingredientes:</h4>
+          <ul class="list-disc list-inside text-gray-600">
+            <li *ngFor="let ingredient of getIngredients(item)">
+              {{ ingredient }}
+            </li>
+          </ul>
+        </div>
+        <button
+          (click)="showDetails(item)"
+          class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50"
+        >
+          Ver Detalles
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div *ngIf="selectedDrink" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+  <div class="bg-white rounded-lg p-8 max-w-2xl w-full mx-4">
+    <h2 class="text-3xl font-bold mb-4 text-center">{{ selectedDrink.strDrink }}</h2>
+    <img [src]="selectedDrink.strDrinkThumb" [alt]="selectedDrink.strDrink" class="w-full object-cover rounded-lg mb-4" style="height: 300px;" />
+    <p class="text-gray-700 mb-4 text-center">{{ selectedDrink.strInstructions }}</p>
+    <div class="text-center">
+      <h3 class="font-semibold mb-2">Ingredientes:</h3>
+      <ul class="list-disc list-inside mb-4 mx-auto" style="max-width: 200px;"> <!-- Centrar lista ajustando el ancho máximo -->
+        <li *ngFor="let ingredient of getIngredients(selectedDrink)">
+          {{ ingredient }}
+        </li>
+      </ul>
+    </div>
+    <button
+      (click)="closeDetails()"
+      class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full mx-auto block" 
+    >
+      Cerrar
+    </button>
+  </div>
+</div>
+
